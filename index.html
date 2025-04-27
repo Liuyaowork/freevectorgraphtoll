@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+    <title>矢量图免费在线转换工具</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>矢量图免费在线转换工具</h1>
+        <p>支持多种图片格式，轻松完成在线转换</p>
+    </header>
+    <main>
+        <section class="upload-section">
+            <h2>上传图片</h2>
+            <form id="uploadForm">
+                <div id="dropArea" class="drop-area">
+                    将文件拖拽到此处或
+                    <label for="fileInput" class="file-label">选择文件</label>
+                </div>
+                <input type="file" id="fileInput" accept="image/*" multiple required>
+                <label for="formatSelect">选择目标格式：</label>
+                <select id="formatSelect" required>
+                    <option value="svg">SVG</option>
+                    <option value="png">PNG</option>
+                    <option value="jpg">JPG</option>
+                    <option value="pdf">PDF</option>
+                </select>
+                <button type="submit">开始转换</button>
+            </form>
+            <div id="progressContainer" style="display: none;">
+                <label for="progressBar">转换进度：</label>
+                <progress id="progressBar" value="0" max="100"></progress>
+            </div>
+        </section>
+        <section class="result-section" id="resultSection" style="display: none;">
+            <h2>转换完成</h2>
+            <div id="fixedDownloadContainer"></div> <!-- 移动到图片预览功能上方 -->
+            <div id="previewContainer"></div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2023 矢量图在线转换工具</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

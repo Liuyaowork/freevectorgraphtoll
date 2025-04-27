@@ -1,0 +1,265 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #FFFFFF; /* 改为纯白色背景 */
+    color: #333; /* 调整文字颜色为深灰色 */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin: 5px 0 0;
+}
+
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-section, .result-section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+button.clear-button {
+    background-color: #f44336; /* 红色背景 */
+    color: #FFFFFF; /* 白色文字 */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button.clear-button:hover {
+    background-color: #d32f2f; /* 更深的红色 */
+}
+
+.file-label {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#fileInput {
+    display: none; /* 隐藏原始文件输入框 */
+}
+
+#uploadForm {
+    border: 2px dashed #4CAF50;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#uploadForm.dragover {
+    background-color: #f0f0f0;
+}
+
+#progressContainer {
+    margin-top: 10px;
+}
+
+#previewContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#previewContainer img {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: transform 0.3s ease; /* 添加平滑放大效果 */
+}
+
+#previewContainer img:hover {
+    transform: scale(2.5); /* 放大到半屏大小 */
+    z-index: 10; /* 确保放大的图片在最上层 */
+    position: relative;
+    max-width: 50vw; /* 限制最大宽度为半屏 */
+    max-height: 50vh; /* 限制最大高度为半屏 */
+}
+
+#previewContainer img:active {
+    /* 移除双击全屏展示样式 */
+}
+
+.drop-area {
+    border: 2px dashed #4CAF50;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.drop-area:hover {
+    background-color: #f0f0f0;
+}
+
+drop-area.dragover {
+    background-color: #e0ffe0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #FFFFFF; /* 改为纯白色背景 */
+    color: #333; /* 调整文字颜色为深灰色 */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#fixedDownloadContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 居中对齐 */
+    gap: 10px;
+    margin-bottom: 20px; /* 调整为与下方内容保持间距 */
+    visibility: visible; /* 确保容器始终可见 */
+}
+
+#fixedDownloadContainer a {
+    display: inline-block;
+    background-color: #008CBA; /* 蓝色背景 */
+    color: #FFFFFF; /* 白色文字 */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#fixedDownloadContainer a:hover {
+    background-color: #005f73; /* 更深的蓝色 */
+}
+
+#fixedDownloadContainer button {
+    display: inline-block;
+    background-color: #008CBA; /* 蓝色背景 */
+    color: #FFFFFF; /* 白色文字 */
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto; /* 居中按钮 */
+}
+
+#fixedDownloadContainer button:hover {
+    background-color: #005f73; /* 更深的蓝色 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+        margin: 10px;
+        box-shadow: none; /* 移除阴影以适配小屏幕 */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    input, select, button {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .file-label {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    #previewContainer img {
+        max-width: 80px; /* 缩小预览图大小 */
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+
+    input, select, button {
+        font-size: 0.8em;
+        padding: 6px;
+    }
+
+    .file-label {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+
+    #previewContainer img {
+        max-width: 60px; /* 进一步缩小预览图大小 */
+    }
+
+    footer {
+        font-size: 0.7em;
+        padding: 6px;
+    }
+}
